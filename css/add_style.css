@@ -1,0 +1,178 @@
+body {
+	padding-top: 50px;
+}
+
+body {
+	font-family: sans-serif;
+}
+
+.draggable {
+	width: 74px;
+	height: 80px;
+	padding: 0;
+}
+
+.draggable.is-pointer-down {
+	background: transparent;
+}
+
+.draggable.is-dragging {
+	opacity: 0.7;
+}
+
+html {
+	overflow-x: hidden;
+	overflow-y: hidden;
+	height: 100%;
+}
+
+.di-inline {
+	display: inline
+}
+
+.form-control {
+	width: 100%;
+}
+
+.input-group {
+	width: 100%;
+	padding: 2px;
+}
+
+.form {
+	padding: 2px;
+}
+
+.monicss {
+	padding: 4px;
+	margin: 0px;
+}
+
+
+/*----------以下是对默认css的调整------------*/
+
+
+/*--左侧选择框左边距微调--*/
+
+.search {
+	padding-left: 20px;
+}
+
+.content {
+	margin-left: 15px;
+}
+
+
+/*---隐藏左侧选择框的文字---*/
+
+.joint-stencil .joint-element[data-type="basic.Image"] text,
+.joint-stencil .joint-element[data-type="devs.Atomic"] .inPorts text,
+.joint-stencil .joint-element[data-type="devs.Atomic"] .outPorts text,
+.joint-stencil .joint-element[data-type="pn.Transition"] text,
+.joint-stencil .joint-element .joint-port text {
+	display: none;
+}
+
+.groups-toggle {
+	position: relative;
+	left: 20px;
+}
+
+
+/* Inspector */
+
+.joint-inspector.joint-theme-modern {
+	position: relative;
+	background: white;
+}
+
+.joint-inspector.joint-theme-modern .field {
+	margin-bottom: 10px;
+}
+
+.joint-inspector.joint-theme-modern input[type="text"],
+.joint-inspector.joint-theme-modern textarea,
+.joint-inspector.joint-theme-modern .joint-select-box.joint-theme-modern {
+	color: #666;
+	border: 2px solid #ededed;
+	font-size: 16px;
+}
+
+.joint-inspector.joint-theme-modern .joint-select-box.joint-theme-modern .select-box-selection {
+	color: #666;
+}
+
+.joint-inspector.joint-theme-modern .joint-select-box.joint-theme-modern:not(.joint-color-palette) .select-box-selection {
+	padding: 4px 12px;
+	border: none;
+}
+
+.joint-select-box.joint-theme-modern .select-box-option {
+	color: #666;
+}
+
+.joint-select-box-options.joint-color-palette.joint-theme-modern {
+	width: 180px;
+}
+
+.joint-inspector.joint-theme-modern .joint-select-box.joint-color-palette.joint-theme-modern div.select-box-selection {
+	border: none;
+}
+
+.joint-inspector.joint-theme-modern label {
+	color: #555;
+	font-weight: normal;
+	margin: 0 0 3px 2px;
+}
+
+.joint-select-box.joint-color-palette.joint-theme-modern .select-box-selection .select-box-option-content {
+	border-radius: 0;
+}
+
+.modal-body .pagination-info {
+	background-color: transparent;
+	color: #000;
+}
+
+.container-fluid .pagination-info {
+	background-color: transparent;
+	color: #000;
+}
+
+.modal-body .pagination {
+	color: #000000;
+}
+
+.container-fluid .pagination {
+	color: #000000;
+}
+
+.col-md-7 {
+	padding: 0;
+}
+
+.col-md-3 {
+	padding: 0;
+}
+
+.textbox {
+	height: 20px;
+	margin: 3px;
+	padding: 0px;
+	box-sizing: content-box;
+}
+
+.textboxa {
+	height: 20px;
+	width: 130px;
+	margin: 3px;
+	padding: 0px;
+	box-sizing: content-box;
+}
+
+.textboxx {
+	height: 20px;
+	margin: 3px;
+	padding: 0px;
+	box-sizing: content-box;
+}
