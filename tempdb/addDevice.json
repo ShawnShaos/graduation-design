@@ -1,0 +1,35 @@
+ {
+	
+						"modify": [{         
+							"name": "属性1",
+							"Ename":"shuxing1",
+							"value": ""
+						}, {
+							"name": "属性2",
+						    "Ename":"shuxing2",
+							"value": ""
+						}, {
+							"name": "属性3",
+						    "Ename":"shuxing3",
+							"value": ""
+						}, {
+							"name": "属性4",
+						    "Ename":"shuxing4",
+							"value": ""
+						}, {
+							"name": "属性5",
+						    "Ename":"shuxing5",
+							"value": ""
+						}, {
+							"name": "属性6",
+						    "Ename":"shuxing6",
+							"value": ""
+						}],
+						"modifyLine":[{            
+							"name": "曲线属性1",
+							"Ename":""
+						},{            
+							"name": "曲线属性2",
+							"Ename":""
+						}]
+					}
