@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<!--Created with Sketsa SVG Editor (http://www.kiyut.com)-->
+<svg contentScriptType="text/ecmascript" width="40.0px" xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="full"
+    zoomAndPan="magnify" contentStyleType="text/css" height="60.0px" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+    version="1.0">
+    <path fill="none" d="M 13.058035 32.528534 C 16.103844 41.675587 21.016438 40.647823 23.570982 37.975655 C 26.125532 
+        35.303482 26.518541 32.734093 26.518541 32.734093" stroke="#000000"/>
+    <line y2="14.793477" fill="none" x1="13.133145" x2="13.133145" y1="32.817158" stroke="#000000"/>
+    <line y2="14.430467" fill="none" x1="26.470844" x2="26.470844" y1="33.138523" stroke="#000000"/>
+    <line y2="14.618101" fill="none" x1="12.842888" x2="26.827318" stroke="#000000" y1="14.618101"/>
+    <line y2="49.02621" fill="none" x1="19.727528" x2="19.727528" stroke="#000000" y1="40.009438"/>
+    <line y2="49.34644" fill="none" x1="11.444446" x2="28.333334" stroke="#000000" y1="49.44445"/>
+    <line y2="5.2222233" fill="none" x1="19.682238" x2="19.682238" stroke="#000000" y1="14.278304"/>
+</svg>

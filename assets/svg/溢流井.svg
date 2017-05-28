@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?>
+<!--Created with Sketsa SVG Editor (http://www.kiyut.com)-->
+<svg contentScriptType="text/ecmascript" width="40.0px" xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="full"
+    zoomAndPan="magnify" contentStyleType="text/css" height="60.0px" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+    version="1.0">
+    <ellipse rx="9.3125" fill="#0066ff" ry="9.8125" cx="20.57639" cy="26.923605" stroke="#000000"/>
+    <line y2="27.749992" fill="#0066ff" x1="11.263889" x2="3.041667" y1="27.749992" stroke="#000000"/>
+    <line y2="27.638882" fill="#0066ff" x1="29.88889" x2="37.958332" y1="27.638882" stroke="#000000"/>
+    <g fill="#0066ff" id="arrow1480492591799">
+        <polyline fill="none" points="21.173613,36.861103 21.173613,53.986103" stroke="#000000"/>
+        <polygon fill="#000000" points="21.173613,53.986103 24.166668,45.28769 18.180557,45.28769" stroke="#000000"/>
+    </g>
+    <g fill="#000000" id="arrow1490346182501" stroke="#000000">
+        <polyline fill="none" points="8.888892,8.888872 25.305937,8.888872 30.55557,8.888872" stroke="#000000"/>
+        <polygon fill="#000000" points="30.55557,8.888872 23.683323,6.666656 23.683323,11.111092" stroke="#000000"/>
+    </g>
+</svg>

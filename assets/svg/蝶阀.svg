@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<!--Created with Sketsa SVG Editor (http://www.kiyut.com)-->
+<svg contentScriptType="text/ecmascript" width="40.0px" xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="full"
+    zoomAndPan="magnify" contentStyleType="text/css" height="60.0px" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+    version="1.0">
+    <rect fill="none" x="7.8749986" width="24.500002" y="11.18055" height="40.25" stroke="#000000"/>
+    <line y2="30.859564" fill="none" x1="32.73611" x2="37.36111" y1="30.856478" stroke="#000000"/>
+    <ellipse rx="3.6111126" fill="none" ry="3.500002" cx="20.388891" cy="31.499992" stroke="#000000"/>
+    <line y2="27.999994" fill="none" x1="32.22222" x2="22.555555" stroke="#000000" y1="11.333328"/>
+    <line y2="34.55555" fill="none" x1="7.7777777" x2="18.11111" stroke="#000000" y1="51.44444"/>
+    <line y2="30.893515" fill="none" x1="3.0694458" x2="7.694445" stroke="#000000" y1="30.893515"/>
+    <g fill="#000000" id="arrow1490346182501" stroke="#000000">
+        <polyline fill="none" points="9.777781,5.555546 25.773874,5.555546 30.888903,5.555546" stroke="#000000"/>
+        <polygon fill="#000000" points="30.888903,5.555546 24.192867,3.3333263 24.192867,7.777769" stroke="#000000"/>
+    </g>
+</svg>

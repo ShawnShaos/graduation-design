@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="no"?>
+<!--Created with Sketsa SVG Editor (http://www.kiyut.com)-->
+<svg contentScriptType="text/ecmascript" width="40.0px" xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="full"
+    zoomAndPan="magnify" contentStyleType="text/css" height="60.0px" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+    version="1.0">
+    <path fill="none" d="M 10.0 26.75" stroke="#000000"/>
+    <path fill="none" d="M 10.625 27.75" stroke="#000000"/>
+    <path fill="none" d="M 10.0 33.5" stroke="#000000"/>
+    <path fill="none" d="M 8.125 25.375" stroke="#000000"/>
+    <line y2="45.402775" fill="none" x1="8.601853" x2="8.587965" stroke="#000000" y1="23.527773"/>
+    <line y2="46.041664" fill="none" x1="31.5" x2="31.5" stroke="#000000" y1="23.124994"/>
+    <line y2="24.486107" fill="none" x1="8.5" x2="31.722221" stroke="#000000" y1="45.416664"/>
+    <line y2="45.305553" fill="none" x1="8.624999" x2="30.791666" stroke="#000000" y1="24.638885"/>
+    <line y2="45.652775" fill="none" x1="8.236114" x2="31.444447" stroke="#000000" y1="45.652775"/>
+    <line y2="34.546295" fill="none" x1="31.125" x2="37.444443" stroke="#000000" y1="34.546295"/>
+    <line y2="34.328705" fill="none" x1="8.638889" x2="2.6111116" stroke="#000000" y1="34.328705"/>
+    <path fill="none" d="M 8.444445 23.922411 C 13.652084 11.5555525 22.0515 12.945087 26.419188 16.557875 C 30.786888 
+        20.17067 31.458838 23.6445 31.458838 23.6445" stroke="#000000"/>
+    <g fill="#000000" id="arrow1490346182501" stroke="#000000">
+        <polyline fill="none" points="8.888892,6.9999857 25.305937,6.9999857 30.55557,6.9999857" stroke="#000000"/>
+        <polygon fill="#000000" points="30.55557,6.9999857 23.683323,4.777766 23.683323,9.22221" stroke="#000000"/>
+    </g>
+</svg>

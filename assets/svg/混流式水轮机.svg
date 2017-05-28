@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?>
+<!--Created with Sketsa SVG Editor (http://www.kiyut.com)-->
+<svg contentScriptType="text/ecmascript" width="40.0px" xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="full"
+    zoomAndPan="magnify" contentStyleType="text/css" height="60.0px" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+    version="1.0">
+    <line y2="40.1999" fill="none" x1="23.047937" x2="35.7767" y1="40.1999" stroke="#ff6666"/>
+    <line y2="40.555557" fill="none" x1="36.19935" x2="36.19935" y1="34.25267" stroke="#ff6666"/>
+    <line y2="25.097406" fill="none" x1="4.874363" x2="4.9782143" y1="18.333332" stroke="#ff6666"/>
+    <line y2="25.148657" fill="none" x1="4.666664" x2="11.676468" y1="25.148657" stroke="#ff6666"/>
+    <line y2="18.956875" fill="none" x1="4.9782133" x2="12.611114" y1="18.956875" stroke="#ff6666"/>
+    <path fill="none" d="M 12.45534 18.926636 C 21.394579 18.794518 29.362154 22.229399 30.722479 26.58906 C 32.08279 
+        30.94872 30.722479 34.91205 29.556494 35.704712" stroke="#ff6666"/>
+    <path fill="none" d="M 23.359484 40.188065 C 17.47093 40.31658 12.222449 36.97538 11.326358 32.73462 C 10.43028 
+        28.493858 11.326358 24.63863 12.094434 23.86758" stroke="#ff6666"/>
+    <line y2="34.808216" fill="none" x1="30.369286" x2="36.44445" y1="34.654488" stroke="#ff6666"/>
+    <ellipse rx="0.6007595" fill="none" ry="0.43531418" cx="20.844772" cy="30.059359" stroke="#ff6666"/>
+</svg>

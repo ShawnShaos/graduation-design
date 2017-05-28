@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<!--Created with Sketsa SVG Editor (http://www.kiyut.com)-->
+<svg contentScriptType="text/ecmascript" width="40.0px" xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="full"
+    zoomAndPan="magnify" contentStyleType="text/css" height="60.0px" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+    version="1.0">
+    <rect fill="none" x="7.8749986" width="24.500002" y="11.402767" height="40.25" stroke="#000000"/>
+    <line y2="51.652767" fill="none" x1="8.25" x2="32.25" y1="11.402767" stroke="#000000"/>
+    <line y2="51.777767" fill="none" x1="32.375" x2="8.0" y1="11.652767" stroke="#000000"/>
+    <line y2="30.263884" fill="none" x1="32.84722" x2="37.694443" y1="30.263884" stroke="#000000"/>
+    <line y2="30.553492" fill="none" x1="7.5416665" x2="2.8055553" y1="30.537031" stroke="#000000"/>
+    <g fill="#000000" id="arrow1490346182501" stroke="#000000">
+        <polyline fill="none" points="9.444448,5.333318 25.440542,5.333318 30.55557,5.333318" stroke="#000000"/>
+        <polygon fill="#000000" points="30.55557,5.333318 23.859535,3.1110988 23.859535,7.555547" stroke="#000000"/>
+    </g>
+</svg>

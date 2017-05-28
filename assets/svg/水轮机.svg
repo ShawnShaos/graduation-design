@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="no"?>
+<!--Created with Sketsa SVG Editor (http://www.kiyut.com)-->
+<svg contentScriptType="text/ecmascript" width="40.0px" xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="full"
+    zoomAndPan="magnify" contentStyleType="text/css" height="60.0px" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+    version="1.0">
+    <path fill="none" d="M 8.708896 31.1917 C 13.8152685 44.272934 22.051346 42.80313 26.334108 38.98165 C 30.616863 
+        35.160168 31.275759 31.48566 31.275759 31.48566" stroke="#ff6666"/>
+    <path fill="none" d="M 8.781797 28.367657 C 13.921959 15.555557 22.212534 16.99512 26.523626 20.737982 C 30.834726 
+        24.48084 31.497978 28.079746 31.497978 28.079746" stroke="#ff6666"/>
+    <line y2="28.052004" fill="none" x1="4.1528397" x2="9.229761" y1="28.052004" stroke="#ff6666"/>
+    <line y2="31.526352" fill="none" x1="4.4444423" x2="9.229762" y1="31.526352" stroke="#ff6666"/>
+    <line y2="31.526463" fill="none" x1="30.80493" x2="36.107594" y1="31.526463" stroke="#ff6666"/>
+    <line y2="31.833158" fill="none" x1="36.008053" x2="36.008053" y1="27.692358" stroke="#ff6666"/>
+    <line y2="27.924969" fill="none" x1="31.176474" x2="36.555553" y1="27.924969" stroke="#ff6666"/>
+    <polygon fill="#000000" points="17.032288,23.569958 22.927572,23.444443 16.856308,36.874493 22.839584,37.000004"
+        stroke="#000000"/>
+    <g id="arrow1481014673865">
+        <polyline fill="none" points="21.684113,30.001286 28.82669,29.959873 30.33333,29.959873" stroke="#000000"/>
+        <polygon fill="#000000" points="30.33333,29.959873 26.315626,28.96605 26.315626,30.953701" stroke="#000000"/>
+    </g>
+    <line y2="30.079216" fill="none" x1="17.559044" x2="11.888886" y1="30.079216" stroke="#000000"/>
+    <line y2="31.888885" fill="none" x1="4.296296" x2="4.296296" y1="27.444443" stroke="#ff6666"/>
+    <g fill="#000000" id="arrow1490346182501" stroke="#000000">
+        <polyline fill="none" points="9.222225,12.111106 25.218319,12.111106 30.333347,12.111106" stroke="#000000"/>
+        <polygon fill="#000000" points="30.333347,12.111106 23.637312,9.888885 23.637312,14.333329" stroke="#000000"/>
+    </g>
+</svg>
