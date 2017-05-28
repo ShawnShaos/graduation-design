@@ -901,7 +901,7 @@ var App = window.App || {};
 				paperScroller.zoomToFit();
 			});
 
-			var flag = 0;
+			var flag = 1;
 			$('#showGrid').on('click', function() {
 				if(flag == 0) {
 					paper.setGridSize(10);
