@@ -43,7 +43,7 @@ var App = window.App || {};
 				//      el: $('#paper').css('width', 800),
 				width: 700,
 				height: 500,
-				//
+				pageSize:10,
 				drawGrid: true,
 				model: graph,
 				defaultLink: new joint.dia.Link({ //设置线的风格
