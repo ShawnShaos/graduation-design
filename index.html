@@ -1,0 +1,1020 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+
+	<head>
+		<meta charset="utf-8">
+		<title>水力计算软件</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<!--网站小图标-->
+		<link rel="shortcut icon" href="img/hydraulicCalculation.ico">
+
+		<!--Bootstrap的图标字体库-->
+		<link href="css/libs/font-awesome.min.css" rel="stylesheet">
+
+		<!-- Loading Flat UI 用户界面工具包插件-->
+		<link rel="stylesheet" href="css/plugins/flat-ui.css" />
+
+		<!-- bootstrap 的css-->
+		<link rel="stylesheet" href="css/libs/bootstrap.css" />
+
+		<!--jQuery网页右键菜单插件context.js的样式css-->
+		<!--<link rel="stylesheet" href="css/plugins/context.standalone.css">-->
+
+		<!--easyui基于jQuery的用户界面插件集合-->
+		<link rel="stylesheet" href="css/plugins/easyui.css" />
+
+		<!--jointjs的css样式-->
+		<link rel="stylesheet" href="css/plugins/joint.min.css" />
+
+		<!--jointjs的主题样式-->
+		<link rel="stylesheet" href="css/plugins/theme-picker.css" />
+
+		<!--自定义新增的样式内容-->
+		<link rel="stylesheet" href="css/add_style.css" />
+
+		<!--bootstrap-table和重命名插件的样式表-->
+		<link rel="stylesheet" href="css/plugins/bootstrap-table.css" />
+		<link rel="stylesheet" href="css/plugins/bootstrap-editable.css" />
+
+		<script type="text/javascript">
+			function formatAction(value, row, index) {
+				if(row.editing) {
+					var s = '<a href="#" onclick="saverow(this)">Save</a> ';
+					var c = '<a href="#" onclick="cancelrow(this)">Cancel</a>';
+					return s + c;
+				} else {
+					var e = '<a href="#" onclick="editrow(this)">Edit</a> ';
+					var d = '<a href="#" onclick="deleterow(this)">Delete</a>';
+					return e + d;
+				}
+			}
+			//			$(function(){
+			//				$(window).unbind('beforeunload');
+			//				window.onbeforeunload = null;
+			//			});
+			//			function close(){
+			//				alert("this is a test");
+			//			}
+			//			window.onbeforeunload=close;
+			//
+			//			$(window).bind('beforeunload',function(){
+			//				return '您输入的内容尚未保存，确定离开此页面吗？';
+			//			});
+			//window.onbeforeunload = function () {
+			//	//你要处理的方法；
+			//	console.log("run");
+			//	return true;
+			//};
+			//			window.onbeforeunload = function(e) {
+			//				var dialogText = 'Dialog text here';
+			//				e.returnValue = dialogText;
+			//				return dialogText;
+			//			};
+		</script>
+
+	</head>
+
+	<body style="height: 100%;" id="view-body">
+		<!--导航-->
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="view-body-navbar">
+			<div class="container-fluid">
+
+				<!--标题头部-->
+				<div class="navbar-header">
+					<!--<a class="navbar-brand" href="#">LXB供水工程水力仿真计算</a>-->
+					<a class="navbar-brand" href="#">水力仿真计算软件</a>
+				</div>
+
+				<!--右边-->
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav ">
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								编辑
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#" id="undo"><i class="icon-undo"></i>&nbsp;&nbsp;后退</a>
+								</li>
+								<li>
+									<a href="#" id="redo"><i class="icon-repeat"></i>&nbsp;&nbsp;前进</a>
+								</li>
+								<li class="divider"></li>
+								<!--分割-->
+								<li>
+									<a href="#" id="cut"><i class="icon-cut"></i>&nbsp;&nbsp;剪切</a>
+								</li>
+								<li>
+									<a href="#" id="copy"><i class="icon-copy"></i>&nbsp;&nbsp;复制</a>
+								</li>
+								<li>
+									<a href="#" id="paste"><i class="icon-paste"></i>&nbsp;&nbsp;粘贴</a>
+								</li>
+								<li class="divider"></li>
+								<!--分割-->
+								<li>
+									<a href="#" id="checkAll"><i class="icon-reorder"></i>&nbsp;&nbsp;全选</a>
+								</li>
+								<li>
+									<a href="#" id="delete"><i class="icon-trash"></i>&nbsp;&nbsp;删除</a>
+								</li>
+								<!--<li class="divider"></li>-->
+								<!--分割-->
+								<!--<li>-->
+								<!--<a href="#"><i class="icon-download-alt"></i>&nbsp;&nbsp;存储截图</a>-->
+								<!--</li>-->
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								视图
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#" id="zoom-in"><i class="icon-zoom-in"></i>&nbsp;&nbsp;放大</a>
+								</li>
+								<li>
+									<a href="#" id="zoom-out"><i class="icon-zoom-out"></i>&nbsp;&nbsp;缩小</a>
+								</li>
+								<!--<li class="divider"></li>-->
+								<!--<li>-->
+								<!--<a href="#"><i class="icon-search"></i>&nbsp;&nbsp;50%</a>-->
+								<!--</li>-->
+								<!--<li>-->
+								<!--<a href="#"><i class="icon-search"></i>&nbsp;&nbsp;75%</a>-->
+								<!--</li>-->
+								<!--<li>-->
+								<!--<a href="#"><i class="icon-search"></i>&nbsp;&nbsp;100%</a>-->
+								<!--</li>-->
+								<!--<li>-->
+								<!--<a href="#"><i class="icon-search"></i>&nbsp;&nbsp;150%</a>-->
+								<!--</li>-->
+								<!--<li>-->
+								<!--<a href="#"><i class="icon-search"></i>&nbsp;&nbsp;200%</a>-->
+								<!--</li>-->
+								<!--<li class="divider"></li>-->
+								<li>
+									<a href="#" id="showGrid"><i class="icon-th"></i>&nbsp;&nbsp;显示网格</a>
+								</li>
+								<li>
+									<a href="#" id="clearGrid"><i class="icon-reply"></i>&nbsp;&nbsp;视图重置</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" id="save">
+								保存工程图
+							</a>
+							<!--<ul class="dropdown-menu">-->
+							<!--<li>-->
+							<!--<a href="#" id="save"><i class="icon-font"></i>&nbsp;&nbsp;文本</a>-->
+							<!--</li>-->
+							<!--<li>-->
+							<!--<a href="#"><i class=" icon-resize-horizontal"></i>&nbsp;&nbsp;连线</a>-->
+							<!--</li>-->
+							<!--</ul>-->
+						</li>
+						<!--<li class="dropdown">-->
+						<!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">-->
+						<!--备用按钮-->
+						<!--<b class="caret"></b>-->
+						<!--</a>-->
+						<!--<ul class="dropdown-menu">-->
+						<!--<li>-->
+						<!--<a href="#" onclick="reaj()">jmeter</a>-->
+						<!--</li>-->
+						<!--<li>-->
+						<!--<a href="#">EJB</a>-->
+						<!--</li>-->
+						<!--<li>-->
+						<!--<a href="#">Jasper Report</a>-->
+						<!--</li>-->
+						<!--<li class="divider"></li>-->
+						<!--<li>-->
+						<!--<a href="#">分离的链接</a>-->
+						<!--</li>-->
+						<!--<li class="divider"></li>-->
+						<!--<li>-->
+						<!--<a href="#">另一个分离的链接</a>-->
+						<!--</li>-->
+						<!--</ul>-->
+						<!--</li>-->
+					</ul>
+
+					<!--<div class="nav navbar-nav navbar-right">-->
+					<ul class="nav navbar-nav navbar-right nav-pills">
+
+						<!--帮助-->
+						<li>
+							<!--帮助-->
+							<a data-toggle="modal" id="helpLi" class="dropdown-toggle" data-target="#help" href="#">帮助</a>
+							<!-- Modal -->
+						</li>
+
+						<!--设备管理-->
+						<li>
+							<a data-toggle="modal" class="dropdown-toggle" data-target="#device-management" href="#">映射关系</a>
+						</li>
+
+						<!--工程管理-->
+						<li>
+							<a data-toggle="modal" id="project" class="dropdown-toggle" data-target="#projectManage" href="#">工程管理</a>
+						</li>
+
+						<!--分割-->
+						<li class="divider-vertical"></li>
+
+						<!--用户信息-->
+						<li class="dropdown">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#">用户名<strong class="caret"></strong></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a data-toggle="modal" class="dropdown-toggle" data-target="#user-management"><i class="icon-user"></i>&nbsp;&nbsp;账户设置</a>
+								</li>
+								<li>
+									<a href="javascript:logout()"><i class="icon-off"></i>&nbsp;&nbsp;退出</a>
+								</li>
+							</ul>
+						</li>
+
+						<!--帮助弹出框-->
+						<div id="help" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="helpLabel">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+										<h5 class="modal-title" id="myModalLabel">帮助</h5>
+									</div>
+										<div class="modal-body" id="bangzhuwendang">
+										&nbsp;&nbsp;版本号：水力仿真计算1.0</br>
+										&nbsp;&nbsp;使用技术：springMVC+easyui+SVG</br>
+										&nbsp;&nbsp;使用对象：水力计算人员</br>
+										&nbsp;&nbsp;详情请查阅帮助文档&nbsp;
+										<button><a href="help.pdf">打开</a></button>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--工程管理弹出框-->
+						<div id="projectManage" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="helpLabel">
+							<div class="modal-dialog modal-lg" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+										<h4 class="modal-title" id="myModalLabel">工程管理</h4>
+									</div>
+									<div class="modal-body" id="bangzhuwendang">
+
+										<!--所有工程的列表面板-->
+										<div class="panel panel-default">
+
+											<div id="toolbarProject" class="btn-group">
+												<button id="btn_add" type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新建工程
+            </button>
+												<!--<button id="btn_edit" type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>修改
+            </button>-->
+												<button id="btn_delete" type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
+            </button>
+											</div>
+											<table id="tb_projects">
+
+											</table>
+										</div>
+
+									</div>
+								</div>
+								<!--<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+									</div>-->
+							</div>
+						</div>
+				</div>
+
+				<!--新建工程弹出框-->
+				<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="addModal">
+					<div class="modal-dialog modal-sm" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								<h4 class="modal-title">输入工程文件名</h4>
+							</div>
+							<div class="modal-body">
+								<div class="input-group">
+									<input type="text" class="form-control" aria-describedby="basic-addon1" id="projectName">
+									<!--</div>-->
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" id="createNew">确定新建</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!--确认删除工程图-->
+				<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" id="deleteModal">
+					<div class="modal-dialog modal-sm" role="document">
+						<div class="modal-content">
+							<div class="modal-body">
+								<h3><span class="label label-warning">确认删除？</span></h3>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" id="deleteYes">确认删除</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--工程右键选项-->
+				<ul id="context-menu" class="dropdown-menu">
+					<li data-item="edit">
+						<a>编辑</a>
+					</li>
+					<li data-item="delete">
+						<a>删除</a>
+					</li>
+				</ul>
+
+				<!--重设密码弹出框-->
+				<div id="user-management" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="user-management-Label" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								<h5 class="modal-title" id="user-management-title">账号管理</h5>
+							</div>
+							<div class="modal-body">
+								<div class="form-group">
+									<label for="username" class="cols-sm-2 control-label">用户名</label>
+									<div class="cols-sm-10">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="icon-user" aria-hidden="true"></i></span>
+											<input type="text" class="form-control" name="username" id="username" value="123" disabled>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="pastpassword" class="cols-sm-2 control-label">原密码</label>
+									<div class="cols-sm-10">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="icon-warning-sign" aria-hidden="true"></i></span>
+											<input type="password" class="form-control" name="password" id="pastpassword" placeholder="Enter your Password" />
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="password" class="cols-sm-2 control-label">新密码</label>
+									<div class="cols-sm-10">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="icon-warning-sign" aria-hidden="true"></i></span>
+											<input type="password" class="form-control" name="password" id="password" placeholder="Enter your Password" />
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="confirm" class="cols-sm-2 control-label">再次输入密码</label>
+									<div class="cols-sm-10">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="icon-warning-sign" aria-hidden="true"></i></span>
+											<input type="password" class="form-control" name="confirm" id="confirm" placeholder="Confirm your Password" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" id="btn_modify_password">确定修改</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				</ul>
+			</div>
+			</div>
+		</nav>
+
+		<!--body-->
+		<div class="row" style="height: 100%;">
+			<div class="col-md-2 " style="height: 99%;">
+				<!--左侧选择框-->
+				<div id="stencil-container" style="height: 100%;"></div>
+			</div>
+
+			<div class="col-md-7" style="height: 99%;">
+				<!--工具条-->
+				<div id="toolbar" style="height:50px;"></div>
+				<!--画板-->
+				<div id="paper" style=" height: -moz-calc(100% - 50px);height: -webkit-calc(100% - 50px);height: calc(100% - 50px);background-color: #D1D1D1;"></div>
+
+				<!--映射关系弹出框-->
+				<div id="device-management" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<!--<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>-->
+								<!--<h5 class="modal-title" id="device-management-title">图元与设备映射关系</h5>-->
+							</div>
+							<div class="modal-body">
+								<table id="devicemanagement" class="easyui-datagrid">
+
+								</table>
+								<div id="tb">
+									<span>设备类型:</span>
+									<select id="PRJ_cd" class="easyui-combobox " style="width:80px;">
+										<!--panelHeight="75"-->
+										<option value="" selected="selected">ALL</option>
+										<option value="2">管道</option>
+										<option value="1">隧洞</option>
+										<option value="24">弯头</option>
+										<option value="22">节点</option>
+										<option value="3">球阀</option>
+										<option value="4">蝶阀</option>
+										<option value="5">调流阀</option>
+										<option value="6">超压泄压阀</option>
+										<option value="7">空气阀</option>
+										<option value="8">平面闸门</option>
+										<option value="9">弧面闸门</option>
+										<option value="10">调压井</option>
+										<option value="23">连接井</option>
+										<option value="11">配水站</option>
+										<option value="12">取水口</option>
+										<option value="13">溢流井</option>
+										<option value="14">分水口</option>
+										<option value="15">进水池</option>
+										<option value="16">出水池</option>
+										<option value="17">围堰</option>
+										<option value="18">电站</option>
+										<option value="19">水轮机</option>
+										<option value="20">压力计</option>
+										<option value="21">流量计</option>
+									</select>
+									<span>匹配:</span>
+									<select id="MARCH_YN" class="easyui-combobox " style="width:80px;" panelHeight="75">
+										<option value="" selected="selected">ALL</option>
+										<option value="0">未匹配</option>
+										<option value="1">已匹配</option>
+									</select>
+									<span>图元名称:</span>
+									<input id="PEL_NM" class="textboxa">
+									<a href="#" class="easyui-linkbutton" onclick="doSearch()">Search</a>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!--设备匹配摸态框-->
+				<div id="TandDevice" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="TandDevice-Label" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								<h5 class="modal-title" id="TandDevice-title">设备匹配</h5>
+							</div>
+							<div class="modal-body">
+								<div style="margin-bottom: 5px" style="align-content: center">
+									<span>图元名称:</span>
+									<input id="T_name" class="textbox" disabled="true" value="一段4号管道">
+									<span>当前匹配设备名称:</span>
+									<input id="TA_name" class="textbox" disabled="true" value="一段4号管道">
+								</div>
+								<table id="TandD_table" class="easyui-datagrid">
+
+								</table>
+								<div id="TandD_tb">
+									<!--<a href="#" class="easyui-linkbutton " onclick="reset()">修改</a>-->
+									<!--<a href="#" class="easyui-linkbutton " style="display: none;" id="saveDe" onclick="saveDE()">保存</a>-->
+									<!--<a href="#" class="easyui-linkbutton " style="display: none;" id="redo" onclick="reDo()">取消</a>-->
+									&nbsp;<span>设备名称:</span>
+									<input id="TandD_PEL_NM" class="textbox">
+									<!--<span>设备名称:</span>-->
+									<!--<input id="DEVICE_NM">-->
+									<a href="#" class="easyui-linkbutton" iconCls="icon-search" onclick="SearchDEV()">Search</a>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" onclick="mapping()">确定匹配</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-3 tabbable " style="height:99%;" id="Main_work">
+				<!--右侧3格栅栏-->
+
+				<ul class="nav nav-tabs container-fluid " style="background-color: lightgray;text-align: center;">
+					<li class="active" style="width: 33.3%">
+						<a href="#shuju" data-toggle="tab" onclick="shuju()">数据</a>
+					</li>
+					<li style="width: 33.3%">
+						<a href="#moni" data-toggle="tab">模拟</a>
+					</li>
+					<li style="width: 33.3%">
+						<a href="#jieguo" data-toggle="tab">结果</a>
+						<!--onclick="selectanswer()"-->
+					</li>
+				</ul>
+				<!--数据/模拟/结果，导航栏-->
+
+				<div class="tab-content container-fluid " style="padding:0;border:1px solid #8f8f8f;height:95%;background-color:lightgray;    position: relative;">
+
+					<div class="tab-pane  active" id="shuju" style="padding:2px;border:1px solid #8f8f8f;height:100%; width: 100%;position:absolute;top: 0;left: 0;display: block;">
+						<div class="container-fluid" style="padding:2px;border:1px solid #8f8f8f;width: 100%;height: 35%;">
+
+							<table id="devices" class="easyui-datagrid">
+
+							</table>
+							<div id="tool">
+								<!--<a href="#" class="easyui-linkbutton " onclick="reset()">修改</a>-->
+								<!--<a href="#" class="easyui-linkbutton " style="display: none;" id="saveDe" onclick="saveDE()">保存</a>-->
+								<!--<a href="#" class="easyui-linkbutton " style="display: none;" id="redo" onclick="reDo()">取消</a>-->
+								<span>设备类型:</span>
+								<select id="PRJ_cdd" class="easyui-combobox " style="width:80px;">
+									<!--panelHeight="75"-->
+									<option value="" selected="selected">ALL</option>
+									<option value="2">管道</option>
+									<option value="1">隧洞</option>
+									<option value="24">弯头</option>
+									<option value="22">节点</option>
+									<option value="3">球阀</option>
+									<option value="4">蝶阀</option>
+									<option value="5">调流阀</option>
+									<option value="6">超压泄压阀</option>
+									<option value="7">空气阀</option>
+									<option value="8">平面闸门</option>
+									<option value="9">弧面闸门</option>
+									<option value="10">调压井</option>
+									<option value="23">连接井</option>
+									<option value="11">配水站</option>
+									<option value="12">取水口</option>
+									<option value="13">溢流井</option>
+									<option value="14">分水口</option>
+									<option value="15">进水池</option>
+									<option value="16">出水池</option>
+									<option value="17">围堰</option>
+									<option value="18">电站</option>
+									<option value="19">水轮机</option>
+									<option value="20">压力计</option>
+									<option value="21">流量计</option>>
+								</select>
+								<span>对象名称:</span><input id="PEL_NMM" class="textbox" style="width: 100px">
+								<!--<span>设备名称:</span>-->
+								<!--<input id="DEVICE_NM">-->
+								<a href="#" class="easyui-linkbutton" onclick="doSearchOBJ()">Search</a>
+							</div>
+
+						</div>
+						<!--选择设备类型，然后选择一个对象-->
+
+						<div class="container-fluid" style="padding:2px;border:1px;height:65%;">
+							<div id="data-type" style="text-align: center;width: 100%;margin-bottom: 3px">
+								<div class="form-group monicss container-fluid">
+									<select id="data-type-one" data-toggle="select" class="form-control select select-primary mrs mbm" onchange="datatypeone(this)">
+										<option value="0" selected="true">设备属性</option>
+										<option value="1">设备计算结果</option>
+										<option value="2">仿真参数</option>
+									</select>
+								</div>
+								<div id="hidee">
+									<button id="hideee" visible="true" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#TandDevice">匹配</button>
+									<label id="dataonline" disabled="true">在线/离线属性（ON为在线）：
+										<input id="data-type-two" type="checkbox" checked  data-toggle="switch" value="on"  onchange="on_out_line(this)" >
+									</label>
+								</div>
+
+							</div>
+							<!--属性/结果；在线/离线 选项-->
+
+							<div style="height:80%;">
+								<form id="attribute_data" class="form-inline" role="form" style="text-align: center;width: 100%;height: 100%;">
+									<div id="property" style=" overflow: auto;height:68%;width: 100%;margin-bottom:8px;padding: 2px;">
+										<!--<select data-toggle="select" class="form-control select select-primary mrs mbm">-->
+										<!--<option value="0" selected="true">1</option>-->
+										<!--<option value="1">2</option>-->
+										<!--<option value="2">3</option>-->
+										<!--</select>-->
+										<!--<div class="input-group">-->
+										<!--<label class="input-group-addon" for="first">属性1</label>-->
+										<!--<input type="text" class="form-control" id="first" placeholder="100">-->
+										<!--<span class="input-group-addon">.00</span>-->
+										<!--</div>-->
+
+									</div>
+
+									<!--单个设备的曲线图-->
+									<div class="modal fade" id="onecomLine" tabindex="-1" role="dialog" aria-labelledby="comLineLabel" aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+														&times;
+													</button>
+													<h4 class="modal-title">
+														工程曲线图
+													</h4>
+												</div>
+												<div class="modal-body">
+													<!--style="overflow:hidden"-->
+													<!--<div id="xiao1"  style="width:100px; height:50px; float:left; background:#f00;">-->
+													<!--</div>-->
+													<div id="attribute_line" style="width:570px; height:350px; ">
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+													</button>
+												</div>
+											</div>
+											<!-- /.modal-content -->
+										</div>
+										<!-- /.modal -->
+									</div>
+
+									<div style="postion:relative">
+										<!--属性名与属性单位css长度待固定-->
+										<input type="button" class="btn btn-primary" id="valueT" value="提交属性" onclick="Submitall()" disabled>
+
+										<!--type="submit"-->
+										<input type="reset" class="btn btn-primary" id="resetT" value="重置属性">
+										<!--<button class="btn btn-primary" type="reset" id="resetT" >重置属性</button>-->
+									</div>
+
+									<!--type="reset"-->
+								</form>
+							</div>
+							<!--80%为表单加按钮占用的高度-->
+							<!--属性表单-->
+
+						</div>
+						<!--设置某一个设备的属性-->
+					</div>
+					<!--设置属性-->
+
+					<div class="tab-pane " id="moni" style="padding: 2px;border:1px solid #8f8f8f;height:100%;width: 100%;position:absolute;top: 0;left: 0;display: block;">
+						<div style="width:100% ; height:85% ;">
+							<form id="monitiaojian" class="form-group " role="form" action="" method="" style="width: 100%;height:100%">
+								<!--onsubmit="return checkform();"-->
+								<div class="form-group monicss container-fluid" style="width:100%; height: 10%;text-align: center">
+									<select id="SIM_DATA_TYPE" name="SIM_DATA_TYPE" data-toggle="select" class="form-control select select-primary mrs mbm">
+										<option value="1" selected="true">在线计算模式</option>
+										<option value="0">离线计算模式</option>
+									</select>
+								</div>
+								<div class="form-group monicss container-fluid" style="width:100%; height: 10%;text-align: center">
+									<select id="SIM_CAL_TYPE" name="SIM_CAL_TYPE" data-toggle="select" class="form-control select select-primary mrs mbm" onchange="committypechange(this)">
+										<option value="0">稳态计算模式</option>
+										<option value="1" selected="true">瞬态计算模式</option>
+									</select>
+								</div>
+								<div class="form-group monicss container-fluid" style="width:100%;height: 72%;overflow: auto;">
+									<!--border:1px solid #8f8f8f;-->
+									<div class="form-group form-group-lg monicss " style="margin-bottom: 0px">
+										<label for="SIM_START_STR">存储开始时间：</label>
+										<div class="input-group">
+											<input type="number" class="form-control" id="SIM_START_STR" name="SIM_START_STR" placeholder="N秒后开始仿真计算" step="5" min="0">
+											<span class="input-group-addon">.S</span>
+										</div>
+									</div>
+									<div class="form-group form-group-lg monicss " style="margin-bottom: 0px">
+										<label for="SIM_TIME_LEN">仿真总时长：</label>
+										<div class="input-group">
+											<input type="number" class="form-control" id="SIM_TIME_LEN" name="SIM_TIME_LEN" placeholder="仿真总时长" step="5" min="0" onblur="setbuchang()">
+											<span class="input-group-addon">.S</span>
+										</div>
+									</div>
+									<div class="form-group form-group-lg monicss " style="margin-bottom: 0px">
+										<label for="SIM_TIME_STEP">仿真时间步长：</label>
+										<div class="input-group">
+											<input type="number" class="form-control" id="SIM_TIME_STEP" name="SIM_TIME_STEP" placeholder="仿真步长" step="0.5" min="0" max="6">
+											<span class="input-group-addon">.S</span>
+
+										</div>
+									</div>
+									<div class="form-group form-group-lg monicss ">
+										<label for="SIM_STEP_NUM">存储步长数：</label>
+										<div class="input-group">
+											<input type="number" class="form-control " id="SIM_STEP_NUM" name="SIM_STEP_NUM" placeholder="间隔N步输出结果" step="1" min="0">
+											<span class="input-group-addon">.步
+                                    		<!--<button class="btn btn-default " type="button">生成</button>-->
+                                		</span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group monicss container-fluid" style="width:100%; height: 5%;text-align: center">
+									<input type="button" class="btn btn-info" style="width: 45%" data-toggle="modal" data-target="#topology" value="拓扑验证">
+									<button class="btn btn-info" type="reset" style="width: 45%">重置条件设置</button>
+								</div>
+							</form>
+						</div>
+						<div style="width: 100% ; height:15%;">
+							<!--<div style="width: 100%;margin-top: 2px;margin-bottom: 5px;">-->
+							<!--<button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#topology">图形拓扑关系验证</button>-->
+							<!--</div>-->
+							<div style="width: 100%;margin-top: 2px;margin-bottom: 8px;text-align: center">
+								<button type="button" class="btn btn-default" style="width: 30%;" id="btnRequest">运行</button>
+								<!--onclick="checkform()"-->
+								<button type="button" class="btn btn-default" style="width: 30%;">暂停</button>
+								<button type="button" class="btn btn-default" style="width: 30%;">终止</button>
+							</div>
+							<div style="width: 100%">
+								<button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#result-information">结果信息</button>
+							</div>
+						</div>
+						<!--拓扑，结果信息，失败原因弹出框-->
+						<div class="modal fade" id="topology" tabindex="-1" role="dialog" aria-labelledby="topologyLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+											&times;
+										</button>
+										<h4 class="modal-title">
+											拓扑验证信息
+										</h4>
+									</div>
+									<div class="modal-body">
+										在这里添加一些文本
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+										</button>
+										<button type="button" class="btn btn-primary">
+											提交更改
+										</button>
+									</div>
+								</div>
+								<!-- /.modal-content -->
+							</div>
+							<!-- /.modal -->
+						</div>
+
+						<div class="modal fade" id="result-information" tabindex="-1" role="dialog" aria-labelledby="result-informationLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+											&times;
+										</button>
+										<h4 class="modal-title">
+											结果详细信息
+										</h4>
+									</div>
+									<div class="modal-body">
+										在这里添加一些文本
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+										</button>
+										<button type="button" class="btn btn-primary">
+											提交更改
+										</button>
+									</div>
+								</div>
+								<!-- /.modal-content -->
+							</div>
+							<!-- /.modal -->
+						</div>
+
+					</div>
+					<!--设置计算条件-->
+
+					<div class="tab-pane " id="jieguo" style="padding: 2px;border:1px solid #8f8f8f;width: 100%;height:100%;position:absolute;top: 0;left: 0;display: block;">
+
+						<!--所有仿真记录选择-->
+						<div style="width: 100%;height:45%;padding: 1px;border:1px solid #8f8f8f;" class=" container-fluid">
+							<table id="slect-moni" class="easyui-datagrid" style="width: auto;">
+							</table>
+						</div>
+
+						<!--按钮-->
+						<div style="width: 100%;height:6%;text-align: center">
+							<!--class=btn-group-->
+							<!--<button type="button" class="btn btn-info" style="width: 30%;margin-top: 5px;margin-bottom: 5px" onclick="getSelected()">详细信息</button>-->
+							<button type="button" class="btn btn-info" style="width: 45%;margin-top: 5px;margin-bottom: 5px" onclick="delete_moni()">Delete</button>
+							<button type="button" class="btn btn-info" style="width: 45%;margin-top: 5px;margin-bottom: 5px" onclick="selectanswer()">更新记录表</button>
+							<!--onclick="pldelete_moni()" id="pldelect"-->
+						</div>
+
+						<!--按钮-->
+						<div class="" style="width: 100%; height: 6%;text-align: center">
+							<button type="button" class="btn btn-success" style="width: 45%;margin-top: 3px;margin-bottom: 5px">结果报告</button>
+							<button type="button" class="btn btn-success" style="width: 45%;margin-top: 3px;margin-bottom: 5px" data-toggle="modal" data-target="#comLine" onclick="getLine()">仿真结果曲线</button>
+							<div class="modal fade" id="comLine" tabindex="-1" role="dialog" aria-labelledby="comLineLabel" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+											&times;
+										</button>
+											<h4 class="modal-title">
+											工程仿真结果曲线图
+										</h4>
+										</div>
+										<div class="modal-body">
+											<!--style="overflow:hidden"-->
+											<!--<div id="xiao1"  style="width:100px; height:50px; float:left; background:#f00;">-->
+											<!--</div>-->
+											<div id="resultLine" style="width:570px; height:350px; ">
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+										</button>
+										</div>
+									</div>
+									<!-- /.modal-content -->
+								</div>
+								<!-- /.modal -->
+							</div>
+						</div>
+
+						<!--详细信息-->
+						<div style="width: 100%;height:43%;padding: 1px;border:1px solid #8f8f8f;" class="container-fluid">
+							<table id="tt" class="easyui-propertygrid" title="仿真详细信息" style="width:100%;height: 100%;" data-options="singleSelect:true,collapsible:true">
+							</table>
+							<div id="tbb">
+								<!--<a href="#" class="easyui-linkbutton " onclick="reset()">修改</a>-->
+								<!--<a href="#" class="easyui-linkbutton " style="display: none;" id="saveDe" onclick="saveDE()">保存</a>-->
+								<!--<a href="#" class="easyui-linkbutton " style="display: none;" id="redo" onclick="reDo()">取消</a>-->
+								<div>
+									用户:<input id="M_user" class="textbox" style="width: 70px;margin-left: 26px"> 起始时间:
+									<input id="M_start" type="text" name="M_start" editable="false" class="easyui-datebox">
+								</div>
+								<div>
+									水力模型:
+									<select id="M_mode" class="easyui-combobox" style="width:70px;" panelHeight="75">
+										<option value="">All</option>
+										<option value="Transient">Transient</option>
+										<option value="Steady">Steady</option>
+									</select>
+									<!--<input id="M_mode" class="textbox" style="width: 70px">-->
+									数据来源:
+									<select id="M_datatype" class="easyui-combobox" style="width:70px;" panelHeight="75">
+										<option value="">All</option>
+										<option value="Online">Online</option>
+										<option value="Outline">Outline</option>
+									</select>
+									<!--<input id="M_datatype" class="textbox" style="width: 70px">-->
+									<a href="#" class="easyui-linkbutton" onclick="doSearchtwo()" iconCls="icon-search"></a>
+								</div>
+
+								<!--plain="true"-->
+							</div>
+						</div>
+					</div>
+					<!--模拟记录-->
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="js/libs/jquery.js"></script>
+
+		<!--flat-ui扁平化ui设计-->
+		<script type="text/javascript" src="js/plugins/flat-ui.min.js"></script>
+		<script type="text/javascript" src="js/plugins/application.js"></script>
+
+		<!--easyUI.js-->
+		<script type="text/javascript" src="js/plugins/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="js/plugins/easyui-lang-zh_CN.js"></script>
+
+		<!--jointjs及其依赖库-->
+		<script src="js/libs/lodash.js"></script>
+		<script src="js/libs/index.js"></script>
+		<script src="js/libs/backbone.js"></script>
+		<script src="js/plugins/joint.min.js"></script>
+
+		<!--
+        	自定义的有关画图的js
+        -->
+		<script type="text/javascript" src="js/config/halo.js"></script>
+		<script type="text/javascript" src="js/config/toolbar.js"></script>
+		<script type="text/javascript" src="js/config/stencil.js"></script>
+		<script type="text/javascript" src="js/models/shapes.js"></script>
+		<script type="text/javascript" src="js/views/main.js"></script>
+
+		<script>
+			//joint.setTheme('default');
+			app = new App.MainView(); //实例化对象
+		</script>
+
+		<!--
+        	业务控制
+        -->
+		<!--<script src="dist/js/lib/context.js"></script>-->
+		<script src="js/views/Jwork.js"></script>
+
+		<!--
+        	百度echarts的图表框架
+        -->
+		<script src="js/plugins/echarts.min.js"></script>
+
+		<!--
+        	进度读取的遮罩效果
+        -->
+		<script type="application/javascript" src="js/libs/spin.js"></script>
+
+		<!--bootstrap table引用-->
+		<!--<script type="text/javascript" src="dist/js/lib/bootstrap.min.js"></script>-->
+
+		<script type="text/javascript" src="js/plugins/bootstrap-table.js"></script>
+		<script type="text/javascript" src="js/plugins/bootstrap-editable.js"></script>
+		<script type="text/javascript" src="js/plugins/bootstrap-table-editable.js"></script>
+		<script type="text/javascript" src="js/plugins/bootstrap-table-zh-CN.js"></script>
+		<script type="text/javascript" src="js/plugins/bootstrap-table-contextmenu.js"></script>
+
+		<!--
+        	多工程管理功能
+        -->
+		<script type="text/javascript" src="js/views/project_manage.js"></script>
+
+		<script type="text/javascript">
+			//等待图形功能配置
+			var opts = {
+				lines: 13, // 花瓣数目
+				length: 20, // 花瓣长度
+				width: 10, // 花瓣宽度
+				radius: 30, // 花瓣距中心半径
+				corners: 1, // 花瓣圆滑度 (0-1)
+				rotate: 0, // 花瓣旋转角度
+				direction: 1, // 花瓣旋转方向 1: 顺时针, -1: 逆时针
+				color: '#5882FA', // 花瓣颜色
+				speed: 1, // 花瓣旋转速度
+				trail: 60, // 花瓣旋转时的拖影(百分比)
+				shadow: false, // 花瓣是否显示阴影
+				hwaccel: false, //spinner 是否启用硬件加速及高速旋转
+				className: 'spinner', // spinner css 样式名称
+				zIndex: 2e9, // spinner的z轴 (默认是2000000000)
+				top: 'auto', // spinner 相对父容器Top定位 单位 px
+				left: 'auto' // spinner 相对父容器Left定位 单位 px
+			};
+			var spinner = new Spinner(opts);
+
+			$(document).ready(function() {
+				$("#btnRequest").bind("click", function() {
+					var target = $("#Main_work").get(0);
+					spinner.spin(target);
+					setTimeout("hidediv()", 5000);
+					ajaxRequestData();
+				})
+			});
+
+			function hidediv() {
+				//关闭spinner
+				spinner.spin();
+				alert("计算成功");
+			};
+
+			function ajaxRequestData() {
+				$.ajax({
+					type: "POST",
+					url: "test",
+					dataType: "json",
+					contentType: "application/json",
+					data: JSON.stringify({
+						SIM_CD: 'jfdigudfigudfoibjdfjboijoifjbifo',
+					}),
+					beforeSend: function(data) {
+						//异步请求时spinner出现
+						//var target = $("#firstDiv").get(0);
+						//spinner.spin(target);
+					},
+					success: function(msg) {
+						//setTimeout("hidediv()", 5000);
+						//关闭spinner
+						//alert("KKK");
+						$('#slect-moni').datagrid('reload');
+					},
+					error: function(e, jqxhr, settings, exception) {
+						$("#firstDiv").text("请求发生错误...");
+
+					}
+				});
+			};
+
+			//$(window).bind('beforeunload',function(){return '您输入的内容尚未保存，确定离开此页面吗？';});
+			//window.onbeforeunload = function(event) { 
+			//}
+		</script>
+
+	</body>
+
+</html>
