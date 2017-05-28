@@ -2121,12 +2121,12 @@ function getNowFormatDate() {
 //控制登录部分
 $(document).ready(function() {
 
-	username = sessionStorage.getItem("username", null);
-	if(username == null) {
-		//	 alert("请重新登录");
-		window.location = "login.html";
-	};
-	$("#username").val(username);
+	// username = sessionStorage.getItem("username", null);
+	// if(username == null) {
+	// 	//	 alert("请重新登录");
+	// 	window.location = "login.html";
+	// };
+	// $("#username").val(username);
 
 	//登出
 	logout = function() {
